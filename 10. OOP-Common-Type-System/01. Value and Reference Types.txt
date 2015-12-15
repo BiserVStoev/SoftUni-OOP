@@ -1,0 +1,23 @@
+Q1: Which .NET data types are value types? Which types are reference types?
+- Valute types are: Primitive types (byte, sbyte, short, ushort, int, uint, long, ulong, double, float, bool, char), 
+Structures  Enumerations.
+- Data types are: String, arrays, Class and Delegates.
+Q2: How do value and reference types differ when assigned to a variable? 
+- Value types are stored in the stack, while reference types are stored in the heap, with its address stored in the stack.
+Q3: How do value and reference types behave when passed as argument to a method?
+- Value types cannot be changed directly from inside a method, while reference types will be changed.
+Q4: Where in memory are value types allocated? Where are reference types allocated?
+- Value types are stored in the stack, while reference types are stored in the heap, with its address stored in the stack.
+Q5: What is data mutation? Can value types be mutated? Can reference types be mutated?
+- Data mutation means changed the values in a address. Value types are immutable and can only be copied to another address in the stack, while reference types can be mutated.
+Q6: What is the difference between mutating and setting (assigning) a variable? Give examples.
+- Mutating changes the value of a variable, where as setting creates a new address.
+Example: int a = 5, a = 3; // mutating
+		 Coffee coffee = new Coffee(); // setting
+Q7: What are the out and ref keywords used for? In what do they differ?
+-[ref] and [out] both allow the called method to modify a parameter. The difference between them is what happens before you make the call.
+
+[ref] means that the parameter has a value on it before going into the function. The called function can read and or change the value any time. The parameter goes in, then comes out
+
+[out] means that the parameter has no official value before going into the function. The called function must initialize it. The parameter only goes out
+
