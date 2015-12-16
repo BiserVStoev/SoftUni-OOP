@@ -67,7 +67,7 @@ namespace _03.GenericList
         {
             get
             {
-                if (i < 0 || i > this.currentIndex)
+                if (i < 0 || i >= this.currentIndex)
                 {
                     throw new IndexOutOfRangeException("Index was outside of the boundaries of the custom list!");
                 }

@@ -49,5 +49,10 @@ namespace _02.Customer.Models
                 this.price = value;
             }
         }
+
+        public override string ToString()
+        {
+            return $"Product name: {this.ProductName}, price: {this.Price}";
+        }
     }
 }

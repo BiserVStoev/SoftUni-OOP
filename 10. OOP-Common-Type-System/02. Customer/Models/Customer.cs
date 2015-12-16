@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using _02.Customer.Enums;
 
@@ -15,7 +16,7 @@ namespace _02.Customer.Models
         private string address;
         private string mobilePhone;
         private string email;
-        private IList<Payment> payments = new List<Payment>();
+        private readonly IList<Payment> payments = new List<Payment>();
 
         public Customer(string firstName, string middleName, string lastName, long iD, string address, string mobilePhone, string email, CustomerType customerType)
         {
@@ -186,29 +187,20 @@ namespace _02.Customer.Models
 
         public static bool operator ==(Customer customerA, Customer customerB)
         {
-            if (customerA.Equals(customerB))
-            {
-                return true;
-            }
-
-            return false;
+            return Equals(customerA, customerB);
         }
 
         public static bool operator !=(Customer customerA, Customer customerB)
         {
-            if (!customerA.Equals(customerB))
-            {
-                return true;
-            }
-
-            return false;
+            return !(Equals(customerA, customerB));
         }
 
         public override string ToString()
         {
             return $"Name: {this.FirstName} {this.MiddleName} {this.LastName}{Environment.NewLine} ID: {this.ID}" +
                    $" {Environment.NewLine}Adress: {this.Address}{Environment.NewLine}Mobile: {this.MobilePhone}" +
-                   $"{Environment.NewLine}Email: {this.Email}{Environment.NewLine}Payments: {string.Join(", ", this.Payments)}";
+                   $"{Environment.NewLine}Email: {this.Email}{Environment.NewLine}" +
+                   $"Payments: {(this.payments.Any() ? string.Join(", ", this.Payments) : "No payments")}";
         }
 
         public object Clone()

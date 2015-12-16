@@ -23,8 +23,12 @@ namespace _02.Customer
             customerC.AddPayment(new Payment("Topka", 20));
             customerC.AddPayment(new Payment("Computer", 1502));
 
-            Console.WriteLine(customerC);
+            Console.WriteLine();
             Console.WriteLine(customerB);
+            Console.WriteLine();
+            Console.WriteLine(customerC);
+
+            Console.WriteLine();
             Console.WriteLine(customerB.CompareTo(customerA));
         }
     }
